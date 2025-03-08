@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analyse en cours...</title>
+</head>
+<body style="text-align: center;">
+    <h1>📡 Analyse de votre appareil...</h1>
+    <p id="info"></p>
+    <script>
+        let userAgent = navigator.userAgent;
+        let ip = "Chargement...";
+        
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                ip = data.ip;
+                document.getElementById("info").innerText = "Votre IP : " + ip + "\nAppareil : " + userAgent;
+            });
+    </script>
+</body>
+</html>
